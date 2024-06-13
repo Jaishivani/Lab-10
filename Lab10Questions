@@ -1,0 +1,85 @@
+1) Write a program that generates a stream of random numbers and writes them to a file.
+      n=int(input("Please enter the number: "))
+      with open("sam.txt","a") as file:
+             for i in range(1,n+1):
+             f=file.write(f"The number is {i}\n")
+             print (f)
+2) Write a program to read the random numbers from the file created above and calculate their average.
+n=int(input("Please enter the number: "))
+sum=0
+with open("sam.txt","r") as file:
+    for i in range(1,n):
+        sum=sum+i
+    print(f"The sum of the random number is {sum}")
+    avg=sum/n
+    print(f"The average is {avg}")
+    c=file.read()
+    print(c)
+3) Write a program that reads from a file and handles the case where the file does not exist.
+try:
+    with open('sample.txt', 'r') as file:
+        file_contents = file.read()
+        print("File contents:")
+        print(file_contents)
+except FileNotFoundError:
+    print("The file does not exist.")
+4) Create a user-defined exception NegativeNumberError that is raised when a negative number is encountered in a list.
+def check_positive_numbers(numb):
+    for NUM in numb:
+        if NUM < 0:
+            raise NegativeNumberError(NUM)
+try:
+    li = [1, 2, -3, 4, 5]
+    check_positive_numbers(li)
+except NegativeNumberError as S:
+    print(S)
+5) Create a NumPy array of 10 random numbers and print them.
+                 import numpy as np
+  	    ran_array=np.random.rand(10)
+	    print(“Random array:”)
+	    print(ran_array)
+6) Write a program to add and remove items from a NumPy array.
+Import numpy as np
+u=np.array([1,2,3,4,5,6])
+print(“Initial array: “,u)
+added_array=np.append(u,6)
+print(“Added array is “,added_array)
+remove_array=np.delete(added_array,2)
+print(“Removed array is “,remove_array)
+
+7) Sort the NumPy array which you created.
+import numpy as np
+u=np.array([20,40,56,78,42])
+print("Before sorting: ",u)
+u.sort()
+print("After sorting: ",u)
+8) Reshape a NumPy array into a 2x5 matrix.
+import numpy as np
+u= np.arange(10)
+reshaped_array = u.reshape(2, 5)
+print(reshaped_array)
+9) Demonstrate indexing and slicing on the reshaped matrix.
+import numpy as np
+u= np.arange(10)
+reshaped_array = u.reshape(2, 5)
+print(reshaped_array)
+x=reshaped_array[0,0]
+y=reshaped_array[1,4]
+print(“Element at [0,0]: ”,x)
+print(“Element at [1,4]: ”,y)
+a=reshaped_array[0,:]
+b= reshaped_array[:,2]
+c= reshaped_array[:,1:4]
+print(“first row:”,a)
+print(“third column:”,b)
+print(“sub matrix column 1 to 3:”,c)
+
+10. Write a program to append new data to an existing file and then read the updated file.
+filename = 'example.txt'
+new_data = "\nThis is the new data being appended to the file."
+with open(filename, 'a') as file:
+    file.write(new_data)
+with open(filename, 'r') as file:
+    updated_content = file.read()
+print("Updated file content:")
+print(updated_content)
